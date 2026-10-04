@@ -1,0 +1,158 @@
+/* ============================================
+   BIẾN MÀU DÙNG CHUNG
+   Lấy cảm hứng từ hương vị Việt: ớt đỏ / rau thơm xanh / nghệ vàng
+   ============================================ */
+:root {
+    --primary: #FF4D3D;        /* Đỏ ớt — nút bấm, giá tiền, hành động chính */
+    --primary-dark: #E23E2E;
+    --primary-light: #FFE4DE;
+    --secondary: #0D9488;      /* Xanh rau thơm — điểm nhấn phụ, danh mục */
+    --accent: #FFB703;         /* Vàng nghệ — riêng cho nhãn giảm giá */
+    --dark: #2B2118;
+    --bg-page: #FFF8F0;
+    --muted: #8A7F72;
+}
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: var(--dark);
+    background: var(--bg-page);
+}
+h1, h2, h3, h4, h5, h6, .navbar-brand, .card-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+}
+
+/* ============================================
+   NÚT BẤM THEO MÀU THƯƠNG HIỆU
+   ============================================ */
+.btn-brand {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+.btn-brand:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: #fff;
+}
+
+/* Gạch chân màu xoay vòng dưới tiêu đề mỗi danh mục */
+.cat-underline-0 { border-bottom: 4px solid var(--primary); padding-bottom: 6px; display: inline-block; }
+.cat-underline-1 { border-bottom: 4px solid var(--secondary); padding-bottom: 6px; display: inline-block; }
+.cat-underline-2 { border-bottom: 4px solid var(--accent); padding-bottom: 6px; display: inline-block; }
+
+/* Nhãn giảm giá màu vàng nghệ, tách biệt khỏi màu nút đỏ */
+.badge-giam { background: var(--accent); color: var(--dark); font-weight: 700; }
+
+/* ============================================
+   BANNER (tạm thời - sẽ nâng cấp Bootstrap Carousel ở Bước 3)
+   ============================================ */
+.banner {
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto 0;
+    height: 160px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.banner-slide {
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+.banner-slide.active { display: flex; }
+.banner-slide h2 { margin: 0 0 8px; font-size: 24px; color: white; }
+.banner-slide p { margin: 0; font-size: 15px; }
+.banner-dots {
+    position: absolute;
+    bottom: 12px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 8px;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+.dot.active { background: white; }
+
+/* ============================================
+   ICON GIỎ HÀNG NỔI
+   ============================================ */
+.gio-hang-noi {
+    position: fixed;
+    bottom: 25px; right: 25px;
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(255, 77, 61, 0.5);
+    z-index: 998;
+    animation: nhun-nhe 2s ease-in-out infinite;
+}
+.gio-hang-noi:hover { animation: none; transform: scale(1.1); }
+@keyframes nhun-nhe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+.badge-noi {
+    position: absolute; top: -4px; right: -4px;
+    background: white; color: var(--primary);
+    font-size: 12px; font-weight: bold;
+    border-radius: 50%;
+    min-width: 20px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--primary);
+}
+
+/* ============================================
+   NÚT LÊN ĐẦU TRANG
+   ============================================ */
+#btn-len-dau {
+    display: none;
+    position: fixed;
+    bottom: 90px; right: 30px;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white; border: none;
+    font-size: 16px; cursor: pointer;
+    align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 997;
+}
+#btn-len-dau:hover { background: var(--primary-dark); }
+/* ============================================
+   NÂNG CẤP NÚT BẤM TO RÕ HƠN - áp dụng toàn site
+   ============================================ */
+.btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.15s ease;
+}
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+.btn-sm {
+    padding: 7px 16px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+.btn-lg {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+}
+
+/* Thẻ bo góc mềm hơn, đồng bộ với nút */
+.card {
+    border-radius: 14px !important;
+}
